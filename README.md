@@ -2,6 +2,9 @@
 Data-MultiVector is a powerful data processing & analysis app designed for complex, multi-dimensional datasets efficiently. Manipulate, analyze, and visualize data from various sources. Whether it's structured, time series, or unstructured data, Data-MultiVector provides a flexible and extensible platform for a wide range of data processing tasks.
 
 
+[Installation instructions](https://curtisalfrey.com/Data-MultiVector/instructions)
+
+
 Key Capabilities:
 
 Data Import and Integration: Data-MultiVector allows users to import data from diverse sources, including databases, CSV files, REST APIs, and more. It supports the integration of data from multiple origins into a unified workspace.
