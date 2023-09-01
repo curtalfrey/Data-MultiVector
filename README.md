@@ -2,6 +2,13 @@
 Created, designed, and maintained by Curtis Alfrey
 Alpha test phase v 1.0
 
+2 examples of how data can be moved through this system from multiple input directories and output in 1 or more directories.
+
+
+![20714-01-multi-input-output-diagram-concept-for-powerpoint-16x9-1](https://github.com/curtalfrey/Data-MultiVector/assets/79066679/438b34e4-ec24-45d1-a009-32ba8e95c286)
+
+![input-output-flow-chart-state-diagram-business-free-presentation-prezi-temlate](https://github.com/curtalfrey/Data-MultiVector/assets/79066679/b5b39868-a86f-46f7-a1c7-410b1d01ea84)
+
 
 Data-MultiVector is a powerful data processing & analysis app designed for complex, multi-dimensional datasets efficiently. Manipulate, analyze, and visualize data from various sources. Whether it's structured, time series, or unstructured data, Data-MultiVector provides a flexible and extensible platform for a wide range of data processing tasks.
 
