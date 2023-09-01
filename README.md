@@ -2,7 +2,7 @@
 Created, designed, and maintained by Curtis Alfrey
 Alpha test phase v 1.0
 
-2 examples of how data can be moved through this system from multiple input directories and output in 1 or more directories.
+2 example pictures of how data can be managed through this system from multiple input directories and output in 1 or more directories.
 
 
 ![20714-01-multi-input-output-diagram-concept-for-powerpoint-16x9-1](https://github.com/curtalfrey/Data-MultiVector/assets/79066679/438b34e4-ec24-45d1-a009-32ba8e95c286)
