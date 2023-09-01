@@ -1,0 +1,6 @@
+# requirements.txt
+
+# List of Python dependencies required for the data_processing_script.py Flask application.
+Flask
+watchdog
+

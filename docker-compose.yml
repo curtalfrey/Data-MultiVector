@@ -1,0 +1,63 @@
+# docker-compose.yml
+
+# This Docker Compose file defines the configuration for running the Flask application in a Docker container.
+# It provides placeholders for external monitoring and observability tools.
+
+version: '3'
+services:
+  web:
+    build: .
+    image: data_processing_image
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./logs:/app/logs  # Mount a volume for logs
+
+  # Optional: Prometheus
+  # prometheus:
+  #   image: prom/prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus-config:/etc/prometheus
+  #   depends_on:
+  #     - web
+
+  # Optional: Grafana
+  # grafana:
+  #   image: grafana/grafana
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - GF_SECURITY_ADMIN_USER=admin
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin_password
+  #   depends_on:
+  #     - prometheus
+
+  # Optional: Sentry (Error Tracking)
+  # sentry:
+  #   image: getsentry/sentry:latest
+  #   environment:
+  #     - SENTRY_SECRET_KEY=your_secret_key
+  #     - SENTRY_POSTGRES_HOST=db
+  #     - SENTRY_DB_USER=sentry
+  #     - SENTRY_DB_PASSWORD=sentry_password
+  #     - SENTRY_SERVER_EMAIL=your_email@example.com
+  #   depends_on:
+  #     - web
+  #   ports:
+  #     - "9000:9000"
+
+  # Optional: StatsD and Telegraf
+  # statsd:
+  #   image: statsd/statsd
+  #   ports:
+  #     - "8125:8125/udp"
+  # telegraf:
+  #   image: telegraf:latest
+  #   depends_on:
+  #     - statsd
+
+networks:
+  monitoring_network:  # Define a custom network for monitoring
+
