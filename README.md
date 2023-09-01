@@ -1,4 +1,4 @@
-# Data-MultiVector
+# Data-MultiVector (open-source)
 Created, designed, and maintained by Curtis Alfrey
 Alpha test phase v 1.0
 
