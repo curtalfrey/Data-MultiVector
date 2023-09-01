@@ -5,7 +5,7 @@ Data-MultiVector is a powerful data processing & analysis app designed for compl
 
 [my website](https://curtisalfrey.com)
 
-[Installation instructions](https://curtisalfrey.com/Data-MultiVector/instructions)
+[Installation instructions](https://www.curtisalfrey.com/program-designs/data-multivector/install-instructions)
 
 
 Key Capabilities:
