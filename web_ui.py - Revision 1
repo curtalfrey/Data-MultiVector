@@ -1,0 +1,13 @@
+# web_ui.py - Revision 1
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html', instructions=INSTRUCTIONS, user_variables=USER_VARIABLES)
+
+@app.route('/documentation')
+def documentation():
+    return render_template('documentation.html', documentation_text=DOCUMENTATION_TEXT)
