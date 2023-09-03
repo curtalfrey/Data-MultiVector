@@ -1,0 +1,11 @@
+<!-- documentation.html - Revision 1 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation</title>
+</head>
+<body>
+    {{ documentation_text | safe }}
+</body>
+</html>
