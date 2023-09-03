@@ -1,0 +1,21 @@
+# main.py - Revision 1
+
+from connection import create_connections
+from web_ui import app
+from logging_utils import configure_logging
+from monitoring import ConnectionMonitor
+
+if __name__ == "__main__":
+    NUM_INPUTS = int(input("Enter the number of input connections: "))
+    NUM_OUTPUTS = int(input("Enter the number of output connections: "))
+
+    connection_data = [
+        # Define connection data as tuples: (source, destinations, allowed_modifications)
+        ("a", ["2", "3"], ["a"]),
+        # Add more connections as needed
+    ]
+    connections = create_connections(connection_data)
+
+    configure_logging()
+    # Set up monitoring
+    # Start the app
