@@ -15,6 +15,6 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - /home/user/github/Data-MultiVector/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /home/user/github/Data-MultiVector/:/etc/nginx/conf.d/default.conf
     ports:
       - "80:80"
