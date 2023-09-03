@@ -44,6 +44,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Set your environment variables here
+      - name: Set environment variables
+        run: |
+          echo "Replace these comments with actual environment variable settings"
+          # export MY_SECRET_KEY=mysecretkey
+          # export DATABASE_URL=mysql+pymysql://username:password@hostname/dbname
+
       - name: Deploy application
         run: |
           docker-compose down
