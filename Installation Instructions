@@ -6,7 +6,7 @@ Deploy Data-MultiVector using Docker to create connections between input and out
    - Open a terminal on your server and navigate to your desired deployment directory.
    - Run the following command to clone the repository from /home/user/:
      
-      git clone https://github.com/curtalfrey/Data-MultiVector.git /home/user/Data-MultiVector
+      git clone https://github.com/curtalfrey/Data-MultiVector.git /home/user/github/Data-MultiVector
 
 
 2. Navigate to the Project Directory
