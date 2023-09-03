@@ -1,0 +1,29 @@
+Data-MultiVector Installation Instructions (Docker)
+
+Deploy Data-MultiVector using Docker to create connections between input and output paths for data processing.
+
+1. Clone the Repository
+   - Open a terminal on your server and navigate to your desired deployment directory.
+   - Run the following command to clone the repository from /home/user/:
+     git clone https://github.com/curtalfrey/Data-MultiVector.git /home/user/Data-MultiVector
+
+2. Navigate to the Project Directory
+   - Change into the cloned repository directory:
+     cd /home/user/Data-MultiVector
+
+3. Configure Environment Variables
+   - Copy the example environment variables file:
+     cp .env.example .env
+   - Open the .env file in a text editor and update the required environment variables (e.g., SECRET_KEY, FLASK_ENV).
+
+4. Build and Start the Application
+   - Build the application using Docker Compose:
+     docker-compose build
+   - Start the application in detached mode:
+     docker-compose up -d
+
+5. Access the Application
+   - Open a web browser and navigate to http://localhost:5000 to access Data-MultiVector.
+
+6. Provide Feedback and Report Bugs
+   - If you encounter issues or bugs, please report them on the GitHub repository: https://github.com/curtalfrey/Data-MultiVector/issues. Your feedback helps improve the application.
