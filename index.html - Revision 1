@@ -1,0 +1,13 @@
+<!-- index.html - Revision 1 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Processing App</title>
+</head>
+<body>
+    <h1>Data Processing App</h1>
+    <p>{{ instructions }}</p>
+    <p>User Variables: {{ user_variables }}</p>
+</body>
+</html>
