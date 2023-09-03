@@ -7,7 +7,7 @@ The main thing, is to keep the main thing, the main thing.
 and THE MAIN THING is to create a tool that will do what a linux symlink command will do, but, with mulitple inputs and/or outputs where symlink only connects 1 input and 1 output......
 Data-MultiVector will create, manage, track, and report multiple data location links.
 
-
+[install](https://github.com/curtalfrey/Data-MultiVector/blob/main/Installation%20Instructions)
  
 2 example pictures of how data can be managed through this system from multiple input directories and output in 1 or more directories.
 
