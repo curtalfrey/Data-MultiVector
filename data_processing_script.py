@@ -1,7 +1,12 @@
+# data_processing_script.py
+
+# This script defines a Flask application for data processing.
+# It includes instructions, variables, routes, and documentation.
+
 import os
 import threading
 import logging
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -28,16 +33,35 @@ INSTRUCTIONS = """
 """
 
 # Additional User Variables
+# Add any extra variables you need from the user in this section.
+# For example, you can request the user to specify file paths or directories.
 USER_VARIABLES = {
-    "input_paths": os.environ.get("INPUT_PATHS", ""),
-    "output_paths": os.environ.get("OUTPUT_PATHS", ""),
+    "input_paths": "",
+    "output_paths": "",
 }
 
 # Documentation
 DOCUMENTATION_TEXT = """
 <h1>Documentation</h1>
-<!-- ... (rest of the documentation) ... -->
+
+<p>Welcome to Data-MultiVector! This program allows you to create connections between input and output paths, acting as symlinks to display the same data in the output files as the input files.</p>
+
+<h2>Website:</h2>
+<p>Visit our website for more information and updates: <a href="http://data-multivector.curtisalfrey.com">http://data-multivector.curtisalfrey.com</a></p>
+
+<h2>FAQ:</h2>
+<p>Check our Frequently Asked Questions for common queries and solutions.</p>
+
+<h2>Troubleshooting Guide:</h2>
+<p>If you encounter any issues, consult our troubleshooting guide for assistance.</p>
+
+<h2>Install Instructions:</h2>
+<p>Follow the installation instructions to set up Data-MultiVector on your system.</p>
+
+<p>We hope you find Data-MultiVector useful for managing your data connections!</p>
 """
+
+# ... (rest of the script remains unchanged) ...
 
 @app.route('/')
 def index():
