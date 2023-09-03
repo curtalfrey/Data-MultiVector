@@ -6,20 +6,37 @@ services:
       dockerfile: Dockerfile
     image: data-multivector-image:1.0
     ports:
-      - "5000:80"
+      - "5000:5000"
     environment:
-      FLASK_ENV: ${FLASK_ENV}
+      FLASK_ENV: development        # Flask configuration
+      SECRET_KEY: 123!z2           # Secret key for Flask
+      
+      UID: 1000                     # User ID for permissions in the container
+      GID: 1000                     # Group ID for permissions in the container
+      
+      DB_HOST: localhost            # MySQL Database host
+      DB_PORT: 3306                 # MySQL Database port
+      DB_USER: ansible              # MySQL Database username
+      DB_PASSWORD: 123!z2           # MySQL Database password
+      DB_NAME: data-multivector     # MySQL Database name
+      
+      INPUT_PATHS: /home/ansible/.ssh/known_hosts,/home/ansible/testing    # Input paths
+      OUTPUT_PATHS: /home/ansible/testdir/                                # Output paths
+      
+      # Other configuration can be added here
     volumes:
-      - app-data:/app
+      - multivector-app-data:/app
+    user: "${UID}:${GID}"
     networks:
       - data-multivector-network
 
   nginx:
     image: nginx:latest
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - /home/ansible/github/Data-MultiVector/nginx.conf:/etc/nginx/conf.d/default.conf
+      - multivector-app-data:/app
     ports:
-      - "80:80"
+      - "80"
     networks:
       - data-multivector-network
 
@@ -27,4 +44,4 @@ networks:
   data-multivector-network:
 
 volumes:
-  app-data:
+  multivector-app-data:
