@@ -2,6 +2,13 @@
 Created, designed, and maintained by Curtis Alfrey
 Alpha test phase v 1.0
 
+The main thing, is to keep the main thing, the main thing. 
+
+and THE MAIN THING is to create a tool that will do what a linux symlink command will do, but, with mulitple inputs and/or outputs where symlink only connects 1 input and 1 output......
+Data-MultiVector will create, manage, track, and report multiple data location links.
+
+
+ 
 2 example pictures of how data can be managed through this system from multiple input directories and output in 1 or more directories.
 
 
