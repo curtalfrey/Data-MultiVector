@@ -1,29 +1,20 @@
-# Dockerfile
-
-# Use the official Python image as the base image
+# Use an official Python runtime as a parent image
 FROM python:3.8-slim
 
-# Set the working directory inside the container
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy the Flask application files to the container
+# Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install required dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
 
-# Optimize Static Files with Flask-Assets
-RUN pip install Flask-Assets
-RUN flask assets build
-
-# Install Nginx
-RUN apt-get update && apt-get install -y nginx
-
-# Copy Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80 for Nginx
+# Make port 80 available to the world outside this container
 EXPOSE 80
 
-# Start Nginx and the Flask app
-CMD service nginx start && gunicorn -b 0.0.0.0:5000 data_processing_script:app
+# Define environment variable for Flask
+ENV FLASK_APP=data_processing_script.py
+
+# Run app.py when the container launches
+CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
