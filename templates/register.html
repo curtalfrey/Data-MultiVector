@@ -5,26 +5,15 @@
 </head>
 <body>
     <h1>Register</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
     <form method="POST">
-        {{ form.hidden_tag() }}
         <label>Username:</label>
-        {{ form.username(size=20) }}<br>
+        <input type="text" name="username"><br>
         <label>Password:</label>
-        {{ form.password(type="password") }}<br>
+        <input type="password" name="password"><br>
         <label>Confirm Password:</label>
-        {{ form.confirm_password(type="password") }}<br>
-        {{ form.submit() }}
+        <input type="password" name="confirm_password"><br>
+        <input type="submit" value="Register">
     </form>
-    <!-- Link to User Dashboard -->
     <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
 </body>
 </html>
