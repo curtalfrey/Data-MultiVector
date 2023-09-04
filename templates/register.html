@@ -13,14 +13,20 @@
         <label>Email:</label>
         <input type="email" name="email"><br>
         <label>Password:</label>
-        <input type="password" id="password" name="password"><br>
-        <label>Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password"><br>
-        <span id="password-confirmation-message"></span>
+        <input type="password" name="password"><br>
         <input type="submit" value="Register">
     </form>
-    <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
-    <!-- Include the JavaScript file -->
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li class="flash-message {{ message|split(':')[0] }}">{{ message|split(':')[1] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <a href="{{ url_for('login') }}">Go to Login</a>
 </body>
 </html>
