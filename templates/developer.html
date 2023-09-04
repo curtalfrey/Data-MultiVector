@@ -1,8 +1,9 @@
+<!-- developer.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Developer Instructions - data-multivector</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Developer Instructions - data-multivector Project</h1>
@@ -10,11 +11,11 @@
     <h2>1. Data Processing Logic</h2>
     <p>Implement the logic to process input paths, output paths, and connections:</p>
     <ul>
-        <li>Create dictionaries or data structures to store connection data and change logs.</li>
-        <li>Process and validate user-submitted data (input paths, output paths, connections).</li>
-        <li>Implement logic to handle data storage, such as creating symlinks, copying files, etc.</li>
+        <li>Create dictionaries or data structures to store connection data, change logs, and user trash data.</li>
+        <li>Enhance the connection_data dictionary to include relevant data for each connection, such as processing status, timestamps, etc.</li>
+        <li>Implement logic for user authentication, registration, and management.</li>
+        <li>Implement logic to handle data storage, such as creating symlinks, copying files, and user trash management.</li>
         <li>Ensure data validation and security checks to prevent malicious input.</li>
-        <li>Enhance the connection_data dictionary with additional attributes.</li>
     </ul>
     
     <h2>2. Logging Configuration</h2>
@@ -42,7 +43,7 @@
     <h2>5. Frontend Design</h2>
     <p>Design user-friendly frontend templates:</p>
     <ul>
-        <li>Create or update HTML templates (index.html, developer.html, documentation.html) for better user interaction.</li>
+        <li>Create or update HTML templates (index.html, register.html, login.html, dashboard.html) for better user interaction.</li>
         <li>Add forms, input fields, and buttons for submitting data to the backend.</li>
     </ul>
     
@@ -51,6 +52,7 @@
     <ul>
         <li>Replace the Flask development server with a production-ready server (e.g., Gunicorn).</li>
         <li>Configure the application for secure deployment using HTTPS.</li>
+        <li>Integrate Docker and Docker Compose for containerized deployment.</li>
     </ul>
     
     <!-- Add more sections as the project evolves -->
