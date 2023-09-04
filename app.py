@@ -1,79 +1,77 @@
-import os
-import threading
-import logging
-import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'  # Replace with your MySQL configuration
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Enable Flask debugger mode
-app.debug = True
+db = SQLAlchemy(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
 
-# Logging configuration
-logging.basicConfig(filename='script.log', level=logging.INFO)
+# User model
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
 
-# Updated dictionary to store data for each connection
-connection_data = {}
-# Updated dictionary to store change logs for each connection
-change_logs = {}
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    if request.method == 'POST':
-        try:
-            input_paths = request.form.getlist('input_paths[]')
-            output_paths = request.form.getlist('output_paths[]')
-            connections = request.form.getlist('connections[]')
-
-            # Update processing and storage logic
-            for idx, connection in enumerate(connections):
-                connection_id = f"connection_{idx}"
-                connection_data[connection_id] = {
-                    'input_path': input_paths[idx],
-                    'output_path': output_paths[idx],
-                    'processing_status': 'pending',
-                    'timestamp': datetime.datetime.now(),
-                }
-
-                change_logs[connection_id] = []
-
-                # Log initial change
-                change_logs[connection_id].append(f"Initial setup: {input_paths[idx]} -> {output_paths[idx]}")
-
-                # Implement data processing logic here
-                apply_transformations(connection_id)
-
-                # Demonstrate processing with print messages
-                print(f"Processing connection {connection_id}: {input_paths[idx]} -> {output_paths[idx]}")
-
-                # Log applied transformations in the change log
-                change_logs[connection_id].append("Applied transformation A")
-                change_logs[connection_id].append("Applied transformation B")
-
-            # For demonstration purposes, print processed data and change logs
-            print("Connection Data:", connection_data)
-            print("Change Logs:", change_logs)
-
-        except Exception as e:
-            error_message = f"An error occurred: {str(e)}"
-            print(error_message)
-            return render_template('error.html', error_message=error_message)
-
     return render_template('index.html')
 
-# ... (other routes remain unchanged)
-
-# Function to simulate data processing with transformations
-def apply_transformations(connection_id):
-    # Implement your data processing logic here
-    # This is where you would apply transformations to the data
-    # Example: Read data from input_path, process it, and save to output_path
-    input_path = connection_data[connection_id]['input_path']
-    output_path = connection_data[connection_id]['output_path']
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        
+        hashed_password = generate_password_hash(password, method='bcrypt')
+        
+        new_user = User(username=username, email=email, password_hash=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+        
+        flash('Registration successful. Please log in.', 'success')
+        return redirect(url_for('login'))
     
-    # Demonstrate processing with print messages
-    print(f"Applying transformations to {input_path} -> {output_path}")
+    return render_template('register.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        user = User.query.filter_by(username=username).first()
+        
+        if user and check_password_hash(user.password_hash, password):
+            login_user(user)
+            flash('Login successful.', 'success')
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Invalid username or password.', 'danger')
+    
+    return render_template('login.html')
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html', user_data=current_user)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Logged out successfully.', 'success')
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
-    # Run Flask app with debugger enabled
     app.run(host="0.0.0.0", port=5000, debug=True)
