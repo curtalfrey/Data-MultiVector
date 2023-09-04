@@ -23,6 +23,7 @@ services:
     image: nginx:latest
     volumes:
       - /path/to/nginx.conf:/etc/nginx/nginx.conf               # enter all your data into, and then set path to nginx.conf
+#      - /path/to/security.conf:/etc/nginx/conf.d/security.conf # remove # in front of - if you want security and update nginx.conf as well 
       - /path/to/ssl/cert/files:/etc/nginx/ssl-cert             # enter host location of ssl pem (.crt .key)
       - multivector-app-data:/app
     ports:
