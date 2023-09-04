@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>User Dashboard - Your App</title>
-    <!-- Include your CSS styles here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Welcome to Your Dashboard, {{ user_data.username }}</h1>
