@@ -4,25 +4,28 @@
 <html>
 <head>
     <title>Data-MultiVector - Documentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Data-MultiVector Documentation</h1>
 
     <h2>Installation Instructions (Docker)</h2>
+    <p>Follow these steps to install Data-MultiVector using Docker:</p>
     <ol>
         <li>Clone the repository from GitHub.</li>
-        <li>Configure environment variables in the Docker Compose file, including:</li>
-        <ul>
-            <li>SECRET_KEY: Your secret key for Flask.</li>
-            <li>SQLALCHEMY_DATABASE_URI: Your MySQL database connection URL.</li>
-            <li>MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD: SMTP email server configuration.</li>
-        </ul>
+        <li>Configure the following environment variables in the Docker Compose file:
+            <ul>
+                <li><strong>SECRET_KEY:</strong> Your secret key for Flask.</li>
+                <li><strong>SQLALCHEMY_DATABASE_URI:</strong> Your MySQL database connection URL.</li>
+                <li><strong>MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD:</strong> SMTP email server configuration.</li>
+            </ul>
+        </li>
         <li>Run the Docker Compose command to deploy the application.</li>
         <li>Access the application via the configured domain name or IP address.</li>
     </ol>
 
     <h2>Usage Instructions</h2>
-    <p>After you have successfully installed Data-MultiVector, here's how you can use it:</p>
+    <p>After successfully installing Data-MultiVector, here's how to use it:</p>
     <ol>
         <li><strong>Access the Application:</strong><br>
             Open a web browser and navigate to the application's URL to access Data-MultiVector.
