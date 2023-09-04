@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data-MultiVector - Home</title>
+</head>
+<body>
+    <h1>Data-MultiVector</h1>
+    <h2>Instructions</h2>
+    <p>Data-MultiVector Installation Instructions (Docker)</p>
+    <p>Deploy Data-MultiVector using Docker to create connections between input and output paths for data processing.</p>
+
+    <h2>User Variables</h2>
+    <form method="post">
+        <label for="input_paths">Input Paths:</label><br>
+        <input type="text" name="input_paths" id="input_paths"><br>
+
+        <label for="output_paths">Output Paths:</label><br>
+        <input type="text" name="output_paths" id="output_paths"><br>
+
+        <h3>Create Connections:</h3>
+        <input type="checkbox" name="connections[]" value="Link-Alpha"> Link-Alpha<br>
+        <input type="checkbox" name="connections[]" value="Link-Bravo"> Link-Bravo<br>
+        <!-- Continue for other connections -->
+
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>
