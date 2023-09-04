@@ -1,23 +1,25 @@
-<!-- templates/trash.html -->
+<!-- trash.html -->
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Trash Can</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Data-MultiVector - Trash</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Trash Can</h1>
-        <ul>
-            {% for file in trashed_files %}
+    <h1>Your Trash Can</h1>
+    
+    <h2>Trashed Files</h2>
+    <ul>
+        {% for file in trashed_files %}
             <li>
-                <strong>{{ file.filename }}</strong> (Size: {{ file.size }} bytes)
-                <a href="{{ file.url }}" class="recovery-link">Recover</a>
+                <strong>Filename:</strong> {{ file.filename }}<br>
+                <strong>Size:</strong> {{ file.size|filesizeformat }}<br>
+                <a href="{{ file.url }}" download>Download</a> |
+                <a href="{{ url_for('recovery', filename=file.filename) }}">Restore</a>
             </li>
-            {% endfor %}
-        </ul>
-        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
-    </div>
+        {% endfor %}
+    </ul>
+    
+    <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
 </body>
 </html>
