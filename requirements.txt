@@ -1,6 +1,5 @@
-# requirements.txt
-
 Flask
 Flask-Assets
 Flask-Talisman
 Gunicorn
+# Add new dependencies as the project evolves
