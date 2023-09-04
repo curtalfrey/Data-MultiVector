@@ -1,8 +1,9 @@
+<!-- templates/login.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login - Your App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Login</h1>
@@ -11,10 +12,19 @@
         <input type="text" name="username"><br>
         <label>Password:</label>
         <input type="password" name="password"><br>
-        <label>TOTP Code:</label>
-        <input type="text" name="totp_code"><br>
         <input type="submit" value="Login">
     </form>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li class="flash-message {{ message|split(':')[0] }}">{{ message|split(':')[1] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
     <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
 </body>
 </html>
