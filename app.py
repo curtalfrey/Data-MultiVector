@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, EqualTo
@@ -12,56 +12,29 @@ app.secret_key = 'your_secret_key'
 users_db = {}
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired(), Length(min=4, max=20)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=6)])
-    confirm_password = PasswordField('Confirm Password', validators=[InputRequired(), EqualTo('password')])
-    submit = SubmitField('Register')
+    # ... (existing registration form code) ...
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired()])
-    password = PasswordField('Password', validators=[InputRequired()])
-    totp_code = StringField('TOTP Code', validators=[InputRequired()])
-    submit = SubmitField('Login')
+    # ... (existing login form code) ...
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm()
-
-    if form.validate_on_submit():
-        username = form.username.data
-        password = form.password.data
-        totp_secret = pyotp.random_base32()
-
-        # Simulate user data storage (replace with proper database logic)
-        users_db[username] = {
-            'password': hashlib.sha256(password.encode()).hexdigest(),
-            'totp_secret': totp_secret,
-        }
-
-        flash('Account created successfully!', 'success')
-        return redirect(url_for('login'))
-
-    return render_template('register.html', form=form)
+    # ... (existing registration route code) ...
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    # ... (existing login route code) ...
 
-    if form.validate_on_submit():
-        username = form.username.data
-        password = form.password.data
-        totp_code = form.totp_code.data
+@app.route('/dashboard')
+def dashboard():
+    if 'username' not in session:
+        flash('Please log in to access the dashboard.', 'warning')
+        return redirect(url_for('login'))
 
-        if username in users_db and hashlib.sha256(password.encode()).hexdigest() == users_db[username]['password']:
-            totp = pyotp.TOTP(users_db[username]['totp_secret'])
-            if totp.verify(totp_code):
-                flash('Login successful!', 'success')
-            else:
-                flash('Invalid TOTP code.', 'error')
-        else:
-            flash('Invalid username or password.', 'error')
+    # Retrieve user data from the database
+    user_data = users_db.get(session['username'], {})
 
-    return render_template('login.html', form=form)
+    return render_template('dashboard.html', user_data=user_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
