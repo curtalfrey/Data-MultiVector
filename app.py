@@ -6,9 +6,8 @@ import os
 import shutil
 
 app = Flask(__name__)
-# ...
 
-# User model and other code remain unchanged
+
 
 @app.route('/delete/<filename>')
 @login_required
@@ -65,7 +64,6 @@ def recovery(filename):
 
     return redirect(url_for('trash'))
 
-# ...
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
