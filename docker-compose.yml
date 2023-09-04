@@ -12,17 +12,16 @@ services:
       SECRET_KEY: 123!z2
     volumes:
       - multivector-app-data:/app
-    user: "${UID}:${GID}"
     networks:
       - data-multivector-network
 
   nginx:
     image: nginx:latest
     volumes:
-      - /home/ansible/github/ssl-cert-curtisalfrey.com:/etc/nginx/conf.d/ssl-cert-curtisalfrey.com
+      - /path/to/ssl/cert/files:/etc/nginx/conf.d/ssl-cert
       - multivector-app-data:/app
     ports:
-      - "6443:6443"
+      - "6443:6443"  # Use port 6443 for HTTPS
     networks:
       - data-multivector-network
 
