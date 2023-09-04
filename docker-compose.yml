@@ -16,7 +16,8 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - /path/to/ssl/cert/files:/etc/nginx/conf.d/ssl-cert      # enter all your data into, and then set path to nginx.conf
+      - /path/to/nginx.conf:/etc/nginx/nginx.conf               # enter all your data into, and then set path to nginx.conf
+      - /path/to/ssl/cert/files:/etc/nginx/ssl-cert             # enter host location of ssl pem (.crt .key)
       - multivector-app-data:/app
     ports:
       - "6443:6443"                                             # set port that you want to use (same as the ngnix.conf)
