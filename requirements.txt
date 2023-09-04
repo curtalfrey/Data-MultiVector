@@ -1,7 +1,8 @@
 Flask
 Flask-Assets
 Flask-Talisman
-Gunicorn
 Flask-Login
-Flask-MySQLdb
+Flask-SQLAlchemy
+Flask-Mail
+Gunicorn
 # Add new dependencies as the project evolves
