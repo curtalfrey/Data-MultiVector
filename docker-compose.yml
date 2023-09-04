@@ -6,13 +6,19 @@ services:
       - "5000:5000"
     environment:
       FLASK_ENV: development                                    # development or production
-      SECRET_KEY: 123!z2                                        # change me
+      SECRET_KEY: 123                                           # change me
     volumes:
       - multivector-app-data:/app
     user: "1000:1000"                                           #set user ID
     networks:
       - data-multivector-network
-
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://app:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+      
   nginx:
     image: nginx:latest
     volumes:
@@ -20,12 +26,20 @@ services:
       - /path/to/ssl/cert/files:/etc/nginx/ssl-cert             # enter host location of ssl pem (.crt .key)
       - multivector-app-data:/app
     ports:
-      - "6443:6443"                                             # set port that you want to use (same as the ngnix.conf)
+      - "443:443"                                             # set port that you want to use (same as the ngnix.conf)
     networks:
       - data-multivector-network
-
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://nginx:443"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+      
 networks:
   data-multivector-network:
+    name: data-multivector-network
 
 volumes:
   multivector-app-data:
+    name: multivector-app-data
