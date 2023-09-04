@@ -1,20 +1,26 @@
+<!-- templates/register.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register - Your App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Register</h1>
     <form method="POST">
         <label>Username:</label>
         <input type="text" name="username"><br>
+        <label>Email:</label>
+        <input type="email" name="email"><br>
         <label>Password:</label>
-        <input type="password" name="password"><br>
+        <input type="password" id="password" name="password"><br>
         <label>Confirm Password:</label>
-        <input type="password" name="confirm_password"><br>
+        <input type="password" id="confirm_password" name="confirm_password"><br>
+        <span id="password-confirmation-message"></span>
         <input type="submit" value="Register">
     </form>
     <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
