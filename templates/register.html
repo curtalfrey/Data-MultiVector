@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Your App</title>
+</head>
+<body>
+    <h1>Register</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label>Username:</label>
+        {{ form.username(size=20) }}<br>
+        <label>Password:</label>
+        {{ form.password(type="password") }}<br>
+        <label>Confirm Password:</label>
+        {{ form.confirm_password(type="password") }}<br>
+        {{ form.submit() }}
+    </form>
+</body>
+</html>
