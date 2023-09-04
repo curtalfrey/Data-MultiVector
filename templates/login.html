@@ -1,30 +1,21 @@
-<!-- templates/login.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Your App</title>
+    <title>Data-MultiVector - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="POST">
-        <label>Username:</label>
-        <input type="text" name="username"><br>
-        <label>Password:</label>
-        <input type="password" name="password"><br>
+    <h1>Data-MultiVector</h1>
+    <h2>Login</h2>
+    <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        
         <input type="submit" value="Login">
     </form>
-    
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class="flash-messages">
-                {% for message in messages %}
-                    <li class="flash-message {{ message|split(':')[0] }}">{{ message|split(':')[1] }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    
-    <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
 </body>
 </html>
