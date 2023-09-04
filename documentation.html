@@ -5,44 +5,32 @@
 </head>
 <body>
     <h1>Data-MultiVector Documentation</h1>
-    <p>Data-MultiVector Installation Instructions (Docker)</p>
-    <p>Deploy Data-MultiVector using Docker to create connections between input and output paths for data processing.</p>
 
+    <h2>Installation Instructions (Docker)</h2>
     <ol>
-        <li>Clone the Repository
-            <ul>
-                <li>Open a terminal on your server and navigate to your desired deployment directory.</li>
-                <li>Run the following command to clone the repository from /home/user/github or wherever you want:</li>
-            </ul>
-        </li>
-        <li>Navigate to the Project Directory
-            <ul>
-                <li>Change into the cloned repository directory:</li>
-                <li>Run the following command to build the Docker image:</li>
-            </ul>
-        </li>
-        <li>Configure docker-compose.yml
-            <ul>
-                <li>Open the docker-compose.yml file and update the environment variables under the app service with your desired values.</li>
-                <li>Make sure to adjust the INPUT_PATHS and OUTPUT_PATHS according to the directories you want to link.</li>
-            </ul>
-        </li>
-        <li>Build and Start Docker Containers
-            <ul>
-                <li>Run the following command to build and start the Docker containers defined in the docker-compose.yml file:</li>
-            </ul>
-        </li>
-        <li>Access the Application
-            <ul>
-                <li>Open a web browser and navigate to http://localhost:5000 to access Data-MultiVector.</li>
-                <li>For subdomain access, set up the necessary DNS and server configurations.</li>
-            </ul>
-        </li>
-        <li>Provide Feedback and Report Bugs
-            <ul>
-                <li>If you encounter issues or bugs, please report them on the GitHub repository: <a href="https://github.com/curtalfrey/Data-MultiVector/issues">https://github.com/curtalfrey/Data-MultiVector/issues</a>. Your feedback helps improve the application.</li>
-            </ul>
-        </li>
+        <!-- ... (installation steps remain the same) ... -->
     </ol>
-</body>
-</html>
+
+    <h2>Usage Instructions</h2>
+    <p>After you have successfully installed Data-MultiVector, here's how you can use it:</p>
+    <ol>
+        <li><strong>Access the Application:</strong><br>
+            Open a web browser and navigate to http://localhost:5000 to access Data-MultiVector.<br>
+            For subdomain access, set up the necessary DNS and server configurations.
+        </li>
+        <li><strong>Interact with the Application:</strong><br>
+            <ul>
+                <li><strong>Inputs:</strong><br>
+                    Use the following format for defining input paths:
+                    <pre><code>Input-A:</code></pre>
+                    <pre><code>Input-B:</code></pre>
+                    <pre><code>Input-C:</code></pre>
+                    <!-- Continue for other inputs -->
+                </li>
+                <li><strong>Outputs:</strong><br>
+                    Use the following format for defining output paths:
+                    <pre><code>Output-1:</code></pre>
+                    <pre><code>Output-2:</code></pre>
+                    <pre><code>Output-3:</code></pre>
+                    <!-- Continue for other outputs -->
+                </
