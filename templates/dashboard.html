@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard - Your App</title>
+    <!-- Include your CSS styles here -->
+</head>
+<body>
+    <h1>Welcome to Your Dashboard, {{ user_data.username }}</h1>
+    <!-- Display user-specific data, connections, change logs, etc. -->
+
+    <!-- Create navigation links and buttons -->
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
