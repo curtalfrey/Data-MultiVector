@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Dashboard - Your App</title>
+    <title>Data-MultiVector - Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to Your Dashboard, {{ user_data.username }}</h1>
-    <!-- Display user-specific data, connections, change logs, etc. -->
-
-    <!-- Create navigation links and buttons -->
+    <h1>Data-MultiVector Dashboard</h1>
+    <h2>Welcome, {{ user_data.username }}!</h2>
+    <p>Your email: {{ user_data.email }}</p>
+    
+    <h3>Your Connections:</h3>
+    <ul>
+        {% for connection in user_data.connections %}
+            <li>{{ connection }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Your Data Paths:</h3>
+    <h4>Input Paths:</h4>
+    <ul>
+        {% for input_path in user_data.input_paths %}
+            <li>{{ input_path }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h4>Output Paths:</h4>
+    <ul>
+        {% for output_path in user_data.output_paths %}
+            <li>{{ output_path }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Actions:</h3>
+    <a href="{{ url_for('files') }}">Manage Files</a><br>
+    <a href="{{ url_for('trash') }}">View Trash</a><br>
     <a href="{{ url_for('logout') }}">Logout</a>
 </body>
 </html>
