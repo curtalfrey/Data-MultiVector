@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Your App</title>
+</head>
+<body>
+    <h1>Login</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label>Username:</label>
+        {{ form.username(size=20) }}<br>
+        <label>Password:</label>
+        {{ form.password(type="password") }}<br>
+        <label>TOTP Code:</label>
+        {{ form.totp_code(size=6) }}<br>
+        {{ form.submit() }}
+    </form>
+</body>
+</html>
