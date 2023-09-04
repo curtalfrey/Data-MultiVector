@@ -1,54 +1,61 @@
+<!-- documentation.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Data-MultiVector - Documentation</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Data-MultiVector Documentation</h1>
 
     <h2>Installation Instructions (Docker)</h2>
     <ol>
-        <!-- ... (previous installation steps remain the same) ... -->
+        <li>Clone the repository from GitHub.</li>
+        <li>Configure environment variables in the Docker Compose file, including:</li>
+        <ul>
+            <li>SECRET_KEY: Your secret key for Flask.</li>
+            <li>SQLALCHEMY_DATABASE_URI: Your MySQL database connection URL.</li>
+            <li>MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD: SMTP email server configuration.</li>
+        </ul>
+        <li>Run the Docker Compose command to deploy the application.</li>
+        <li>Access the application via the configured domain name or IP address.</li>
     </ol>
 
     <h2>Usage Instructions</h2>
     <p>After you have successfully installed Data-MultiVector, here's how you can use it:</p>
     <ol>
         <li><strong>Access the Application:</strong><br>
-            Open a web browser and navigate to http://localhost:5000 to access Data-MultiVector.<br>
-            For subdomain access, set up the necessary DNS and server configurations.
+            Open a web browser and navigate to the application's URL to access Data-MultiVector.
+        </li>
+        <li><strong>Register as a User:</strong><br>
+            Click the "Register" link on the homepage to create a user account with your desired username and password.
+        </li>
+        <li><strong>Login:</strong><br>
+            Use your registered username and password to log in to the application.
         </li>
         <li><strong>Interact with the Application:</strong><br>
             <ul>
                 <li><strong>Input Paths:</strong><br>
-                    On the homepage, you will find input fields for defining input paths. Enter the paths in the following format:
-                    <pre><code>Input-A:</code></pre>
-                    <pre><code>Input-B:</code></pre>
-                    <pre><code>Input-C:</code></pre>
-                    <!-- Continue for Input-D to Input-J -->
+                    On the homepage, you will find input fields for defining input paths. Enter the paths as needed.
                 </li>
                 <li><strong>Output Paths:</strong><br>
-                    On the homepage, you will find input fields for defining output paths. Enter the paths in the following format:
-                    <pre><code>Output-1:</code></pre>
-                    <pre><code>Output-2:</code></pre>
-                    <pre><code>Output-3:</code></pre>
-                    <!-- Continue for Output-4 to Output-10 -->
+                    On the homepage, you will find input fields for defining output paths. Enter the paths as needed.
+                </li>
+                <li><strong>Create Connections:</strong><br>
+                    On the homepage, check the checkboxes to create connections between input and output paths.
+                </li>
+                <li><strong>Delete Links:</strong><br>
+                    On the dashboard, you can delete connections and choose to keep or delete associated files.
+                    Deleted files are moved to your personal trash can.
                 </li>
             </ul>
         </li>
-        <li><strong>Create Connections:</strong><br>
-            <ul>
-                <li><strong>Link-Alpha:</strong><br>
-                    On the homepage, you will find checkboxes for creating connections. Check the box for "Link-Alpha" to connect Input-A to Output-1.
-                </li>
-                <li><strong>Link-Bravo:</strong><br>
-                    On the homepage, check the box for "Link-Bravo" to connect Input-B to Output-2.
-                </li>
-                <!-- Continue for Link-Charlie to Link-Juliett -->
-            </ul>
+        <li><strong>User Dashboard:</strong><br>
+            Once logged in, you'll be redirected to your dashboard where you can manage your connections, trash, and settings.
         </li>
-        <!-- ... (other usage instructions remain the same) ... -->
+        <li><strong>Logout:</strong><br>
+            Click the "Logout" link in the dashboard to log out of your account.
+        </li>
     </ol>
 
 </body>
