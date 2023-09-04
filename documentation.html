@@ -8,7 +8,27 @@
 
     <h2>Installation Instructions (Docker)</h2>
     <ol>
-        <!-- ... (installation steps remain the same) ... -->
+        <li><strong>Clone the Repository:</strong><br>
+            Open a terminal on your server and navigate to your desired deployment directory.<br>
+            Run the following command to clone the repository:
+            <pre><code>git clone https://github.com/curtalfrey/Data-MultiVector.git /home/user/github/Data-MultiVector</code></pre>
+        </li>
+        <li><strong>Navigate to the Project Directory:</strong><br>
+            Change into the cloned repository directory:
+            <pre><code>cd /home/user/github/Data-MultiVector</code></pre>
+        </li>
+        <li><strong>Build Docker Image:</strong><br>
+            Run the following command to build the Docker image:
+            <pre><code>docker-compose build</code></pre>
+        </li>
+        <li><strong>Configure docker-compose.yml:</strong><br>
+            Open the docker-compose.yml file and update the environment variables under the app service with your desired values.<br>
+            Make sure to adjust the INPUT_PATHS and OUTPUT_PATHS according to the directories you want to link.
+        </li>
+        <li><strong>Start Docker Containers:</strong><br>
+            Run the following command to start the Docker containers:
+            <pre><code>docker-compose up -d</code></pre>
+        </li>
     </ol>
 
     <h2>Usage Instructions</h2>
@@ -20,17 +40,37 @@
         </li>
         <li><strong>Interact with the Application:</strong><br>
             <ul>
-                <li><strong>Inputs:</strong><br>
+                <li><strong>Input Paths:</strong><br>
                     Use the following format for defining input paths:
                     <pre><code>Input-A:</code></pre>
                     <pre><code>Input-B:</code></pre>
                     <pre><code>Input-C:</code></pre>
-                    <!-- Continue for other inputs -->
+                    <!-- Continue for Input-D to Input-J -->
                 </li>
-                <li><strong>Outputs:</strong><br>
+                <li><strong>Output Paths:</strong><br>
                     Use the following format for defining output paths:
                     <pre><code>Output-1:</code></pre>
                     <pre><code>Output-2:</code></pre>
                     <pre><code>Output-3:</code></pre>
-                    <!-- Continue for other outputs -->
-                </
+                    <!-- Continue for Output-4 to Output-10 -->
+                </li>
+            </ul>
+        </li>
+        <li><strong>Create Connections:</strong><br>
+            <ul>
+                <li><strong>Link-Alpha:</strong><br>
+                    Connect Input-A to Output-1 using the following command:
+                    <pre><code>link Input-A to Output-1</code></pre>
+                </li>
+                <li><strong>Link-Bravo:</strong><br>
+                    Connect Input-B to Output-2 using the following command:
+                    <pre><code>link Input-B to Output-2</code></pre>
+                </li>
+                <!-- Continue for Link-Charlie to Link-Juliett -->
+            </ul>
+        </li>
+        <!-- ... (other usage instructions remain the same) ... -->
+    </ol>
+
+</body>
+</html>
