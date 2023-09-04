@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuration</title>
+</head>
+<body>
+    <h1>Configuration Settings</h1>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        
+        {{ form.secret_key.label }}
+        {{ form.secret_key }}
+        <br>
+        
+        {{ form.db_uri.label }}
+        {{ form.db_uri }}
+        <br>
+        
+        {{ form.mail_server.label }}
+        {{ form.mail_server }}
+        <br>
+        
+        {{ form.mail_username.label }}
+        {{ form.mail_username }}
+        <br>
+        
+        {{ form.mail_password.label }}
+        {{ form.mail_password }}
+        <br>
+        
+        {{ form.submit }}
+    </form>
+    
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
