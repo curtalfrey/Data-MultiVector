@@ -1,32 +1,26 @@
-<!-- templates/register.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register - Your App</title>
+    <title>Register - Data-MultiVector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Register</h1>
-    <form method="POST">
-        <label>Username:</label>
-        <input type="text" name="username"><br>
-        <label>Email:</label>
-        <input type="email" name="email"><br>
-        <label>Password:</label>
-        <input type="password" name="password"><br>
-        <input type="submit" value="Register">
-    </form>
-    
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class="flash-messages">
-                {% for message in messages %}
-                    <li class="flash-message {{ message|split(':')[0] }}">{{ message|split(':')[1] }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    
-    <a href="{{ url_for('login') }}">Go to Login</a>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST">
+            <label>Username:</label>
+            <input type="text" name="username" required><br>
+            <label>Email:</label>
+            <input type="email" name="email" required><br>
+            <label>Password:</label>
+            <input type="password" name="password" id="password" required><br>
+            <label>Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required><br>
+            <p id="password-confirmation-message"></p>
+            <input type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
