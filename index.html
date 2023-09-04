@@ -11,16 +11,22 @@
 
     <h2>User Variables</h2>
     <form method="post">
-        <label for="input_paths">Input Paths:</label><br>
-        <input type="text" name="input_paths" id="input_paths"><br>
+        <h3>Input Paths:</h3>
+        <input type="text" name="input_paths[]" placeholder="Input-A"><br>
+        <input type="text" name="input_paths[]" placeholder="Input-B"><br>
+        <input type="text" name="input_paths[]" placeholder="Input-C"><br>
+        <!-- Continue for Input-D to Input-J -->
 
-        <label for="output_paths">Output Paths:</label><br>
-        <input type="text" name="output_paths" id="output_paths"><br>
+        <h3>Output Paths:</h3>
+        <input type="text" name="output_paths[]" placeholder="Output-1"><br>
+        <input type="text" name="output_paths[]" placeholder="Output-2"><br>
+        <input type="text" name="output_paths[]" placeholder="Output-3"><br>
+        <!-- Continue for Output-4 to Output-10 -->
 
         <h3>Create Connections:</h3>
         <input type="checkbox" name="connections[]" value="Link-Alpha"> Link-Alpha<br>
         <input type="checkbox" name="connections[]" value="Link-Bravo"> Link-Bravo<br>
-        <!-- Continue for other connections -->
+        <!-- Continue for Link-Charlie to Link-Juliett -->
 
         <input type="submit" value="Save">
     </form>
