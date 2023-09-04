@@ -10,21 +10,19 @@ services:
     environment:
       FLASK_ENV: development
       SECRET_KEY: 123!z2
-      UID: 1000
-      GID: 1000
     volumes:
       - multivector-app-data:/app
-    user: "${UID}:${GID}"  # Use the UID and GID environment variables
+    user: "${UID}:${GID}"
     networks:
       - data-multivector-network
 
   nginx:
     image: nginx:latest
     volumes:
-      - /home/ansible/github/Data-MultiVector/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /home/ansible/github/ssl-cert-curtisalfrey.com:/etc/nginx/conf.d/ssl-cert-curtisalfrey.com
       - multivector-app-data:/app
     ports:
-      - "80"
+      - "6443:6443"
     networks:
       - data-multivector-network
 
