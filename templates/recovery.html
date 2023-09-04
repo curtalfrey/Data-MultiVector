@@ -1,0 +1,19 @@
+<!-- templates/recovery.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Recovery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>File Recovery</h1>
+        <p>Do you want to recover <strong>{{ filename }}</strong> from the trash?</p>
+        <form method="post" action="{{ url_for('recovery', filename=filename) }}">
+            <input type="submit" value="Recover" class="btn btn-primary">
+            <a href="{{ url_for('trash') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
