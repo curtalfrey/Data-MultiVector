@@ -1,0 +1,28 @@
+<!-- templates/request_reset.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Password Reset - Your App</title>
+</head>
+<body>
+    <h1>Request Password Reset</h1>
+    <form method="POST">
+        <label>Email:</label>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Request Reset">
+    </form>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li class="flash-message {{ message|split(':')[0] }}">{{ message|split(':')[1] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <a href="{{ url_for('login') }}">Go to Login</a>
+</body>
+</html>
