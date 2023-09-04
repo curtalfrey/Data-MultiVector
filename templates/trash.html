@@ -1,0 +1,23 @@
+<!-- templates/trash.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trash Can</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Trash Can</h1>
+        <ul>
+            {% for file in trashed_files %}
+            <li>
+                <strong>{{ file.filename }}</strong> (Size: {{ file.size }} bytes)
+                <a href="{{ file.url }}" class="recovery-link">Recover</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>
